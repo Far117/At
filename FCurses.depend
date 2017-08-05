@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1501153757 source:c:\users\frank\dropbox\programs\c\fcurses\src\ascreen.c
+	"ascreen.h"
+
+1501160661 c:\users\frank\dropbox\programs\c\fcurses\include\ascreen.h
+
+1501924043 source:c:\users\frank\dropbox\programs\c\fcurses\main.c
+	<stdio.h>
+	<stdlib.h>
+	"atScreen.h"
+	"atPrint.h"
+
+1501923653 source:c:\users\frank\dropbox\programs\c\fcurses\src\atprint.c
+	"atPrint.h"
+	<string.h>
+
+1501925404 c:\users\frank\dropbox\programs\c\fcurses\include\atprint.h
+	<stdbool.h>
+	"atScreen.h"
+
+1501925306 c:\users\frank\dropbox\programs\c\fcurses\include\atscreen.h
+
+1501924146 source:c:\users\frank\dropbox\programs\c\fcurses\src\atscreen.c
+	"atScreen.h"
+
+1501925483 source:c:\users\frank\dropbox\programs\c\at\src\atscreen.c
+	"atScreen.h"
+
+1501925306 c:\users\frank\dropbox\programs\c\at\include\atscreen.h
+
+1501963250 source:c:\users\frank\dropbox\programs\c\at\src\atprint.c
+	"atPrint.h"
+	<string.h>
+
+1501925404 c:\users\frank\dropbox\programs\c\at\include\atprint.h
+	<stdbool.h>
+	"atScreen.h"
+
+1501963386 source:c:\users\frank\dropbox\programs\c\at\demo.c
+	<stdio.h>
+	<stdlib.h>
+	"atScreen.h"
+	"atPrint.h"
+
