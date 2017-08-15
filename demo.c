@@ -13,6 +13,9 @@
     @brief Displays basic functionality of the @ library.
 */
 
+void pong();
+void rpg();
+
 int main()
 {
     //pong();

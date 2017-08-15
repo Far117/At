@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "atScreen.h"
 
 /**
@@ -71,7 +74,7 @@ void drawAtScreen(AtScreen *atScreen)
     #ifdef __WIN32
         windowsDrawScreen(atScreen);
     #elif defined __unix__
-
+        slowDrawAtScreen(atScreen); // Temporary
     #else
         slowDrawAtScreen(atScreen);
     #endif // __WIN32

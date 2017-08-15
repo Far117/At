@@ -2,6 +2,9 @@
 #include "atScreen.h"
 
 #ifdef __unix__
+    #include <termios.h>
+    #include <unistd.h>
+
     int getch(void)
     {
         struct termios oldattr, newattr;
