@@ -23,12 +23,12 @@
 1501924146 source:c:\users\frank\dropbox\programs\c\fcurses\src\atscreen.c
 	"atScreen.h"
 
-1501925483 source:c:\users\frank\dropbox\programs\c\at\src\atscreen.c
+1502786358 source:c:\users\frank\dropbox\programs\c\at\src\atscreen.c
 	"atScreen.h"
 
-1501925306 c:\users\frank\dropbox\programs\c\at\include\atscreen.h
+1502787719 c:\users\frank\dropbox\programs\c\at\include\atscreen.h
 
-1501963250 source:c:\users\frank\dropbox\programs\c\at\src\atprint.c
+1502787117 source:c:\users\frank\dropbox\programs\c\at\src\atprint.c
 	"atPrint.h"
 	<string.h>
 
@@ -36,9 +36,17 @@
 	<stdbool.h>
 	"atScreen.h"
 
-1501963386 source:c:\users\frank\dropbox\programs\c\at\demo.c
+1502787647 source:c:\users\frank\dropbox\programs\c\at\demo.c
 	<stdio.h>
 	<stdlib.h>
+	<stdbool.h>
 	"atScreen.h"
 	"atPrint.h"
+
+1502787566 source:c:\users\frank\dropbox\programs\c\at\src\atextras.c
+	"atExtras.h"
+	"atScreen.h"
+	<windows.h>
+
+1502480009 c:\users\frank\dropbox\programs\c\at\include\atextras.h
 

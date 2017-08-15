@@ -36,8 +36,12 @@
 		<Unit filename="demo.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="include/atExtras.h" />
 		<Unit filename="include/atPrint.h" />
 		<Unit filename="include/atScreen.h" />
+		<Unit filename="src/atExtras.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/atPrint.c">
 			<Option compilerVar="CC" />
 		</Unit>

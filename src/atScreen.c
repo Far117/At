@@ -18,10 +18,15 @@ AtScreen *newAtScreen(int width, int height)
     // +height to account for newlines, +1 to account for null-terminator
     atScreen->printBuffer = calloc(height * width + height + 1, 1);
     atScreen->buffer = malloc(height * sizeof(char*));
+    atScreen->drawBuffer = malloc(height * sizeof(char*));
 
     int i;
-    for (i = 0; i < width; i++)
+    for (i = 0; i < height; i++)
+    {
         atScreen->buffer[i] = malloc(width);
+        atScreen->drawBuffer[i] = malloc(width);
+    }
+
 
     return atScreen;
 }
@@ -30,9 +35,15 @@ void freeAtScreen(AtScreen *atScreen)
 {
     int i;
     for (i = 0; i < atScreen->height; i++)
+    {
         free(atScreen->buffer[i]);
+        free(atScreen->drawBuffer[i]);
+    }
+
 
     free(atScreen->buffer);
+    free(atScreen->drawBuffer);
+    free(atScreen->printBuffer);
 
     free(atScreen);
 
@@ -50,7 +61,25 @@ void clearAtScreen(AtScreen *atScreen, char clearChar)
     return;
 }
 
-void printAtScreen(AtScreen *atScreen)
+char getScreenPosition(AtScreen *atScreen, int x, int y)
+{
+    return atScreen->buffer[y][x];
+}
+
+void drawAtScreen(AtScreen *atScreen)
+{
+    #ifdef __WIN32
+        windowsDrawScreen(atScreen);
+    #elif defined __unix__
+
+    #else
+        slowDrawAtScreen(atScreen);
+    #endif // __WIN32
+
+    return;
+}
+
+void slowDrawAtScreen(AtScreen *atScreen)
 {
     int x, y, pos = 0;
     for (y = 0; y < atScreen->height; y++)

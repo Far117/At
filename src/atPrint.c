@@ -11,7 +11,7 @@
 
 bool isWithinBounds(AtScreen *atScreen, int x, int y, int xMargin, int yMargin)
 {
-    if ((x + xMargin) > atScreen->width || (y + yMargin) > atScreen->height || x < 0 || y < 0)
+    if ((x + xMargin) >= atScreen->width || (y + yMargin) >= atScreen->height || x < 0 || y < 0)
         return false;
     return true;
 }
@@ -24,8 +24,8 @@ bool placeChar(AtScreen *atScreen, char c, int x, int y)
         return true;
     }
 
-    printf("ERROR: Could not place %c at (%i, %i) because it is out of bounds (%i x %i)\n",
-                c, x, y, atScreen->width, atScreen->height);
+    //printf("ERROR: Could not place %c at (%i, %i) because it is out of bounds (%i x %i)\n",
+    //            c, x, y, atScreen->width, atScreen->height);
     return false;
 }
 

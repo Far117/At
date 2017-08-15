@@ -2,9 +2,17 @@
 #define ATSCREEN_H
 
 #ifdef _WIN32
+    #define CURRENT_OS "Windows"
     #define CLEAR system("cls")
+
+#elif defined __unix__
+    #define CURRENT_OS "Unix"
+    #define CLEAR system("clear")
+
 #else
     #define CLEAR system("clear")
+    #define CURRENT_OS "Unknown"
+
 #endif
 
 /**
@@ -21,7 +29,7 @@
     @brief The backbone of the @ library.
 
     Allows information to be drawn to the console based on x/y coordinates, rather than
-    line-by-line.
+    line-by-line. It is double-buffered to facilitate quick draw times.
 
     @warning By necessity, an AtScreen is internally referenced as [y][x] instead of [x][y].
     Since the latter is more natural, all functions that require x/y coordinates will switch
@@ -31,6 +39,7 @@
 typedef struct AtScreen
 {
     char **buffer; /**< Where all characters to be drawn are stored*/
+    char **drawBuffer;/**< The last drawn frame */
     char *printBuffer; /**< Used as a temporary container when concatenating data to print to console*/
     int width,  /**< The width of the drawn window (should be <= console width)*/
         height; /**< The height of the drawn window (should be <= console height)*/
@@ -55,12 +64,22 @@ void freeAtScreen(AtScreen *atScreen);
 void clearAtScreen(AtScreen *atScreen, char clearChar);
 
 /**
+    @brief Returns the @c char at (@p x,@p y) in @p atScreen's buffer.
+*/
+char getScreenPosition(AtScreen *atScreen, int x, int y);
+
+/**
+    @brief A wrapper which sends the command to the function most-optimized for the system.
+*/
+void drawAtScreen(AtScreen *atScreen);
+
+/**
     @brief Displays the contents of @p atScreen's buffer to the console.
 
     Concatenates all characters of the supplied atScreen's buffer into one cstring,
     then clears the console and prints the cstring to it.
 */
-void printAtScreen(AtScreen *atScreen);
+void slowDrawAtScreen(AtScreen *atScreen);
 
 
 #endif // ASCREEN_H
